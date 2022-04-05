@@ -1,0 +1,18 @@
+{% extends "base.html.twig.html" %}
+
+{% block title %}Page Introuvable - Monde De Basket{% endblock %}
+
+{% block content %}
+<div class="block-small">
+    <h2>Page Introuvable</h2>
+    <p>Cette page n'ai pas accessible pour le moment.</p>
+    <a href="{{ path('home') }}" class="btn btn-info">Revenir à l'acceuil</a>
+</div>
+    <style>
+       .block-small {
+         max-width: 600px;
+         margin: 0 auto;
+            }
+    </style>
+
+{% endblock %}

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="La boutique de Basket">
+    
     <title>{% block title %} Monde de Basket {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
@@ -41,21 +42,27 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('products')}}">Nos produits</a>
                 </li>
+                
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Qui sommes-nous</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                 </li>
             </ul>
             <div class="navbar-item-custom">
                 {% if app.user %}
-                    <a href="{{ path('app_account')}}">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout')}}">Déconnecter</a>
+                    <a href="{{ path('account')}}">Mon compte <small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout')}}">Déconnecter</a>
                 {% else %}
-                    <a href="{{ path('app_login')}}">Connexion</a> | <a href="{{ path('app_register')}}">Inscription</a>
+                    <a href="{{ path('app_login')}}">Connexion</a> | <a href="{{ path('register')}}">Inscription</a>
                 {% endif %}
             </div>
-            
+            <a href=" {{ path('cart') }}">
+                <img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon"  alt=" Mon produit"> 
+            </a>
+            <style>
+            .cart-icon{
+                height: 20px;
+                padding-left: 20px;
+            }
+            </style>
         </div>
     </nav>
 </header>
@@ -64,41 +71,22 @@
     {% if block('carousel') is defined %}
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            {% for key,header in headers %}
+            <li data-target="#myCarousel" data-slide-to="{{ key }}" {% if key == 0 %} class="active" {% endif %}></li>
+            {% endfor %}
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+            {% for key,header in headers %}
+            <div class="carousel-item {% if key == 0 %}active{% endif %}" style="background: url('/uploads/{{ header.illustration}}');background-size:cover;background-position:center">
                 <div class="container">
                     <div class="carousel-caption text-left">
-                        <h1>Example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                        <h1>{{ header.title }}</h1>
+                        <p>{{ header.content }}</p>
+                        <p><a class="btn btn-lg btn-info" href="{{ header.btnUrl}}" role="button">{{ header.btnTitle}}</a></p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-                <div class="container">
-                    <div class="carousel-caption text-right">
-                        <h1>One more for good measure.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -131,6 +119,16 @@
              <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
         </p>
     </footer>
+    <style>
+    .footer-custom{
+        text-align: center;
+    position: absolute;
+    width: 100%;
+    background-color: #dfeafd;
+    padding-top:25px;
+    margin-top: 100px;
+    }
+        </style>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.js')}}"></script>

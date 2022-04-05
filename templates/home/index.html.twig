@@ -4,25 +4,14 @@
 
 {% block content %}
 <!-- Three columns of text below the carousel -->
+        <h3>Nos meilleures ventes</h3>
+        <p>Découvrez les articles les plus vendus. </p>
         <div class="row">
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                <h2>Heading</h2>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
+            {% for product in products %}
+                <div class="col-md-3">
+                    {% include "product/single_product.html.twig" %}
+                </div>
+            {% endfor %}
         </div><!-- /.row -->
 
 
@@ -32,11 +21,12 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading"> BALLON DE BASKET <span class="text-muted">SPALDING</span></h2>
+                <p class="lead">En 1983, la NBA choisit la marque Spalding pour devenir le fournisseur officiel de la NBA. À cette époque, Spalding fabriquait la première balle en cuir synthétique. Même aujourd'hui, Spalding est toujours la référence en basket-ball, 
+                et les joueurs de la NBA ne peuvent se passer de cette marque. Lors des compétitions officielles (Jeux olympiques et Coupe du monde), il leur est difficile d'utiliser des boules de feu en fusion, Les stars de la NBA se sont habituées à la haute qualité des modèles NBA de Spalding.</p>
             </div>
             <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                <img src="{{ asset('assets/img/spalding.jpg') }}" class="img-fluid" alt="">
             </div>
         </div>
 
@@ -44,11 +34,12 @@
 
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">JORDAN DRY AIR DIAMOND <span class="text-muted">SHORT</span></h2>
+                <p class="lead">Les shorts de basket font partie de l'équipement nécessaire aux joueurs, qu'ils soient professionnels ou amateurs, quel que soit leur sexe. Quand on parle de basket, on pense évidemment à la NBA et aux grands équipementiers. Récemment, c'est l'équipementier Nike qui a signé un énorme contrat avec la NBA, un contrat de huit ans, beaucoup de zéros.
+                 La marque se lance immédiatement dans la fabrication de nouveaux équipements pour les joueurs américains.</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                <img src="{{ asset('assets/img/chorte3.webp') }}" class="img-fluid" alt="">
             </div>
         </div>
 
@@ -56,11 +47,13 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">AIR JORDAN 4 RETRO <br><span class="text-muted">BRED</span></h2>
+                <p class="lead">Dans la lignée du succès rencontré par la Air Jordan 3, la marque au Swoosh confie à nouveau les rênes de la Air Jordan 4 au célèbre designer Tinker Hatfield en 1989. Grâce à son design singulier marqué notamment par ses panneaux en mesh et son système de laçage, la silhouette symbole de performance a contribué à la notoriété de la légende Michael Jordan.
+
+Le modèle a par ailleurs fait l’objet de collaborations marquantes et de nombreux coloris sont aujourd’hui devenus cultes. La Air Jordan 4 est désormais entrée au panthéon de la sneaker et s’affirme comme l’une des références les plus prisées des sneakerheads.</p>
             </div>
             <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                <img src="{{ asset('assets/img/airjordan4.jpg') }}" class="img-fluid" alt="">
             </div>
         </div>
 
